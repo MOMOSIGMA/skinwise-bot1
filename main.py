@@ -9,7 +9,7 @@ from flask import Flask
 # === CONFIGURATION ===
 import os
 TOKEN = os.getenv("BOT_TOKEN")
-
+bot = telebot.TeleBot(TOKEN)
 
 # === CHARGEMENT DU PROGRAMME ===
 with open("programme_skinwise.json", "r", encoding="utf-8") as f:
