@@ -5,24 +5,10 @@ import threading
 import json
 from datetime import datetime, date
 import os
-from flask import Flask
-from threading import Thread
 
 # === CONFIGURATION ===
 TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(TOKEN)
-
-# === FLASK POUR RENDER ===
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "Le bot SkinWise est en ligne ✅"
-
-def run_flask():
-    app.run(host="0.0.0.0", port=8080)
-
-Thread(target=run_flask).start()
 
 # === CHARGEMENT DU PROGRAMME ===
 with open("programme_skinwise.json", "r", encoding="utf-8") as f:
@@ -49,52 +35,20 @@ def start(message):
             "paused": False
         }
         save_users()
-        message_bienvenue = """👋 *Bienvenue sur SkinWise* 🌿
+        bot.send_message(message.chat.id, """👋 *Bienvenue sur SkinWise* 🌿
 
-Tu viens d’activer ton programme de 30 jours pour une peau plus saine, un mental plus fort, et des habitudes puissantes.
-
-🧠 *Chaque jour, tu recevras :*
-• 1 message le midi ✅  
-• 1 message le soir 🌙  
-• Avec des routines simples à faire chez toi (hydratation, nutrition, soin, mental…)
-
-🎯 *Objectif* : Rééduquer ta peau naturellement, sans produits agressifs.  
-Mais aussi t’apprendre la discipline, l’amour de soi et la régularité.
-
----
-
-📦 *Avant de commencer, voici ce que je te recommande d’avoir :*
-
-✅ Un gel nettoyant doux (ou savon neutre)  
-✅ Une huile naturelle adaptée (jojoba, nigelle, carotte, ou karité)  
-✅ De l’eau en quantité  
-✅ Un miroir, un carnet ou ton téléphone pour noter  
-✅ Ta volonté. Même petite, elle suffit.
-
----
-
-📌 Tu veux un conseil ou tu ne sais pas quel produit choisir ?  
-Tape simplement `/help`
+Tu viens d’activer ton programme de 30 jours...
 
 🕒 *Le Jour 1 commence dès aujourd’hui.*  
 Tu vas changer doucement, mais profondément.  
-*Félicitations. Tu fais partie de ceux qui OSENT.*"""
-        bot.send_message(message.chat.id, message_bienvenue, parse_mode="Markdown")
+*Félicitations. Tu fais partie de ceux qui OSENT.*""", parse_mode="Markdown")
     else:
         bot.send_message(message.chat.id, "Tu es déjà inscrit. Le programme continue.")
 
 @bot.message_handler(commands=['help'])
 def help_command(message):
     bot.send_message(message.chat.id, """🔹 *Quel gel nettoyant choisir ?*
-Utilise un savon doux ou un gel sans parfum ni alcool (sulfuré, neem ou charbon si possible).
-
-🔹 *Quelle huile naturelle utiliser ?*
-• Peau grasse : jojoba ou nigelle  
-• Peau sèche : karité ou avocat  
-• Peau mixte : carotte ou noisette
-
-🔹 *Puis-je faire le programme sans produits ?*
-Oui. Bois de l’eau, note tes progrès, applique les routines. Les produits sont un plus.
+...
 
 Tape `/reset` pour recommencer, ou `/pause` pour mettre en pause.""", parse_mode="Markdown")
 
@@ -114,7 +68,7 @@ def resume(message):
     if user_id in users:
         users[user_id]["paused"] = False
         save_users()
-        bot.send_message(message.chat.id, "▶️ Programme relancé. Tu recevras les messages aux heures prévues.")
+        bot.send_message(message.chat.id, "▶️ Programme relancé.")
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
@@ -125,7 +79,7 @@ def reset(message):
         users[user_id]["start_date"] = str(date.today())
         users[user_id]["paused"] = False
         save_users()
-        bot.send_message(message.chat.id, "🔄 Programme redémarré. Aujourd’hui est le nouveau Jour 1.")
+        bot.send_message(message.chat.id, "🔄 Programme redémarré.")
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
@@ -153,5 +107,4 @@ def run_schedule():
 
 threading.Thread(target=run_schedule).start()
 
-# === LANCEMENT DU BOT ===
 bot.polling()
