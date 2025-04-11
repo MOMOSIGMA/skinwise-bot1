@@ -7,10 +7,8 @@ from datetime import datetime, date
 from flask import Flask
 
 # === CONFIGURATION ===
-import os
-TOKEN = os.getenv("BOT_TOKEN")
+TOKEN = "7952444866:AAFw6-jYo1deEkLHJPYnoCM3j3kzh3p0Afo"
 bot = telebot.TeleBot(TOKEN)
-
 
 # === CHARGEMENT DU PROGRAMME ===
 with open("programme_skinwise.json", "r", encoding="utf-8") as f:
@@ -30,16 +28,53 @@ def save_users():
 # === COMMANDE /start ===
 @bot.message_handler(commands=['start'])
 def start(message):
-    user_id = str(message.chat.id)
-    if user_id not in users:
-        users[user_id] = {
-            "start_date": str(date.today()),
-            "paused": False
-        }
-        save_users()
-        bot.send_message(message.chat.id, "Bienvenue sur SkinWise 🌿 ! Tu es inscrit au programme. Jour 1 commence aujourd’hui.")
-    else:
-        bot.send_message(message.chat.id, "Tu es déjà inscrit. Le programme continue.")
+     user_id = str(message.chat.id)
+     if user_id not in users:
+         users[user_id] = {
+             "start_date": str(date.today()),
+             "paused": False
+         }
+         save_users()
+
+         message_bienvenue = """👋 *Bienvenue sur SkinWise* 🌿
+
+ Tu viens d’activer ton programme de 30 jours pour une peau plus saine, un mental plus fort, et des habitudes puissantes.
+
+ 🧠 *Chaque jour, tu recevras :*
+ • 1 message le midi ✅  
+ • 1 message le soir 🌙  
+ • Avec des routines simples à faire chez toi (hydratation, nutrition, soin, mental…)
+
+ 🎯 *Objectif* : Rééduquer ta peau naturellement, sans produits agressifs.  
+ Mais aussi t’apprendre la discipline, l’amour de soi et la régularité.
+
+ ---
+
+ 📦 *Avant de commencer, voici ce que je te recommande d’avoir :*
+
+ ✅ Un gel nettoyant doux (ou savon neutre)  
+ ✅ Une huile naturelle adaptée (jojoba, nigelle, carotte, ou karité)  
+ ✅ De l’eau en quantité  
+ ✅ Un miroir, un carnet ou ton téléphone pour noter  
+ ✅ Ta volonté. Même petite, elle suffit.
+
+ ---
+
+ 📌 Tu veux un conseil ou tu ne sais pas quel produit choisir ?  
+ Tape simplement `/help`
+
+ 🕒 *Le Jour 1 commence dès aujourd’hui.*  
+ Tu vas changer doucement, mais profondément.  
+ *Félicitations. Tu fais partie de ceux qui OSENT.*"""
+
+         bot.send_message(message.chat.id, message_bienvenue, parse_mode="Markdown")
+
+     else:
+         bot.send_message(message.chat.id, "Tu es déjà inscrit. Le programme continue.")
+
+
+
+
 
 # === ENVOI AUTOMATIQUE ===
 def envoyer_messages(moment):
