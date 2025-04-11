@@ -7,7 +7,9 @@ from datetime import datetime, date
 from flask import Flask
 
 # === CONFIGURATION ===
-TOKEN = "7952444866:AAFw6-jYo1deEkLHJPYnoCM3j3kzh3p0Afo"
+TOKEN = "import os
+TOKEN = os.getenv("BOT_TOKEN")
+"
 bot = telebot.TeleBot(TOKEN)
 
 # === CHARGEMENT DU PROGRAMME ===
