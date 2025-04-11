@@ -5,10 +5,24 @@ import threading
 import json
 from datetime import datetime, date
 import os
+from flask import Flask
+from threading import Thread
 
 # === CONFIGURATION ===
 TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(TOKEN)
+
+# === FLASK POUR RENDER ===
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Le bot SkinWise est en ligne ✅"
+
+def run_flask():
+    app.run(host="0.0.0.0", port=8080)
+
+Thread(target=run_flask).start()
 
 # === CHARGEMENT DU PROGRAMME ===
 with open("programme_skinwise.json", "r", encoding="utf-8") as f:
@@ -25,7 +39,7 @@ def save_users():
     with open("users.json", "w", encoding="utf-8") as f:
         json.dump(users, f, ensure_ascii=False, indent=2)
 
-# === COMMANDE /start ===
+# === COMMANDES ===
 @bot.message_handler(commands=['start'])
 def start(message):
     user_id = str(message.chat.id)
@@ -35,7 +49,6 @@ def start(message):
             "paused": False
         }
         save_users()
-
         message_bienvenue = """👋 *Bienvenue sur SkinWise* 🌿
 
 Tu viens d’activer ton programme de 30 jours pour une peau plus saine, un mental plus fort, et des habitudes puissantes.
@@ -66,12 +79,10 @@ Tape simplement `/help`
 🕒 *Le Jour 1 commence dès aujourd’hui.*  
 Tu vas changer doucement, mais profondément.  
 *Félicitations. Tu fais partie de ceux qui OSENT.*"""
-
         bot.send_message(message.chat.id, message_bienvenue, parse_mode="Markdown")
     else:
         bot.send_message(message.chat.id, "Tu es déjà inscrit. Le programme continue.")
 
-# === COMMANDE /help ===
 @bot.message_handler(commands=['help'])
 def help_command(message):
     bot.send_message(message.chat.id, """🔹 *Quel gel nettoyant choisir ?*
@@ -87,7 +98,6 @@ Oui. Bois de l’eau, note tes progrès, applique les routines. Les produits son
 
 Tape `/reset` pour recommencer, ou `/pause` pour mettre en pause.""", parse_mode="Markdown")
 
-# === COMMANDE /pause ===
 @bot.message_handler(commands=['pause'])
 def pause(message):
     user_id = str(message.chat.id)
@@ -98,7 +108,6 @@ def pause(message):
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
-# === COMMANDE /resume ===
 @bot.message_handler(commands=['resume'])
 def resume(message):
     user_id = str(message.chat.id)
@@ -109,7 +118,6 @@ def resume(message):
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
-# === COMMANDE /reset ===
 @bot.message_handler(commands=['reset'])
 def reset(message):
     user_id = str(message.chat.id)
@@ -121,7 +129,7 @@ def reset(message):
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
-# === ENVOI DES MESSAGES QUOTIDIENS ===
+# === ENVOI QUOTIDIEN ===
 def envoyer_messages(moment):
     today = date.today()
     for user_id, data in users.items():
@@ -135,7 +143,6 @@ def envoyer_messages(moment):
                 texte = f"🌞 *{msg_data['titre']}*\n\n" + "\n".join([f"• {action}" for action in msg_data["actions"]])
                 bot.send_message(int(user_id), texte, parse_mode='Markdown')
 
-# === PLANIFICATION ===
 schedule.every().day.at("12:30").do(envoyer_messages, moment="midi")
 schedule.every().day.at("21:20").do(envoyer_messages, moment="soir")
 
@@ -145,19 +152,6 @@ def run_schedule():
         time.sleep(1)
 
 threading.Thread(target=run_schedule).start()
-from flask import Flask
-import threading
-
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "Bot en ligne."
-
-def run_flask():
-    app.run(host="0.0.0.0", port=10000)
-
-threading.Thread(target=run_flask).start()
 
 # === LANCEMENT DU BOT ===
 bot.polling()
