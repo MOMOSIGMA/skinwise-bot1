@@ -5,9 +5,9 @@ import threading
 import json
 from datetime import datetime, date
 from flask import Flask
+import os
 
 # === CONFIGURATION ===
-import os
 TOKEN = os.getenv("BOT_TOKEN")
 bot = telebot.TeleBot(TOKEN)
 
@@ -26,56 +26,50 @@ def save_users():
     with open("users.json", "w", encoding="utf-8") as f:
         json.dump(users, f, ensure_ascii=False, indent=2)
 
-# === COMMANDE /start ===
 @bot.message_handler(commands=['start'])
 def start(message):
-     user_id = str(message.chat.id)
-     if user_id not in users:
-         users[user_id] = {
-             "start_date": str(date.today()),
-             "paused": False
-         }
-         save_users()
+    user_id = str(message.chat.id)
+    if user_id not in users:
+        users[user_id] = {
+            "start_date": str(date.today()),
+            "paused": False
+        }
+        save_users()
 
-         message_bienvenue = """👋 *Bienvenue sur SkinWise* 🌿
+        message_bienvenue = """👋 *Bienvenue sur SkinWise* 🌿
 
- Tu viens d’activer ton programme de 30 jours pour une peau plus saine, un mental plus fort, et des habitudes puissantes.
+Tu viens d’activer ton programme de 30 jours pour une peau plus saine, un mental plus fort, et des habitudes puissantes.
 
- 🧠 *Chaque jour, tu recevras :*
- • 1 message le midi ✅  
- • 1 message le soir 🌙  
- • Avec des routines simples à faire chez toi (hydratation, nutrition, soin, mental…)
+🧠 *Chaque jour, tu recevras :*
+• 1 message le midi ✅  
+• 1 message le soir 🌙  
+• Avec des routines simples à faire chez toi (hydratation, nutrition, soin, mental…)
 
- 🎯 *Objectif* : Rééduquer ta peau naturellement, sans produits agressifs.  
- Mais aussi t’apprendre la discipline, l’amour de soi et la régularité.
+🎯 *Objectif* : Rééduquer ta peau naturellement, sans produits agressifs.  
+Mais aussi t’apprendre la discipline, l’amour de soi et la régularité.
 
- ---
+---
 
- 📦 *Avant de commencer, voici ce que je te recommande d’avoir :*
+📦 *Avant de commencer, voici ce que je te recommande d’avoir :*
 
- ✅ Un gel nettoyant doux (ou savon neutre)  
- ✅ Une huile naturelle adaptée (jojoba, nigelle, carotte, ou karité)  
- ✅ De l’eau en quantité  
- ✅ Un miroir, un carnet ou ton téléphone pour noter  
- ✅ Ta volonté. Même petite, elle suffit.
+✅ Un gel nettoyant doux (ou savon neutre)  
+✅ Une huile naturelle adaptée (jojoba, nigelle, carotte, ou karité)  
+✅ De l’eau en quantité  
+✅ Un miroir, un carnet ou ton téléphone pour noter  
+✅ Ta volonté. Même petite, elle suffit.
 
- ---
+---
 
- 📌 Tu veux un conseil ou tu ne sais pas quel produit choisir ?  
- Tape simplement `/help`
+📌 Tu veux un conseil ou tu ne sais pas quel produit choisir ?  
+Tape simplement `/help`
 
- 🕒 *Le Jour 1 commence dès aujourd’hui.*  
- Tu vas changer doucement, mais profondément.  
- *Félicitations. Tu fais partie de ceux qui OSENT.*"""
+🕒 *Le Jour 1 commence dès aujourd’hui.*  
+Tu vas changer doucement, mais profondément.  
+*Félicitations. Tu fais partie de ceux qui OSENT.*"""
 
-         bot.send_message(message.chat.id, message_bienvenue, parse_mode="Markdown")
-
-     else:
-         bot.send_message(message.chat.id, "Tu es déjà inscrit. Le programme continue.")
-
-
-
-
+        bot.send_message(message.chat.id, message_bienvenue, parse_mode="Markdown")
+    else:
+        bot.send_message(message.chat.id, "Tu es déjà inscrit. Le programme continue.")
 
 # === ENVOI AUTOMATIQUE ===
 def envoyer_messages(moment):
@@ -91,11 +85,9 @@ def envoyer_messages(moment):
                 texte = f"🌞 *{msg_data['titre']}*\n\n" + "\n".join([f"• {action}" for action in msg_data["actions"]])
                 bot.send_message(int(user_id), texte, parse_mode='Markdown')
 
-# === PLANIFICATION DES HEURES ===
 schedule.every().day.at("12:30").do(envoyer_messages, moment="midi")
 schedule.every().day.at("21:20").do(envoyer_messages, moment="soir")
 
-# === TÂCHE DE PLANIFICATION EN BOUCLE ===
 def run_schedule():
     while True:
         schedule.run_pending()
@@ -103,7 +95,6 @@ def run_schedule():
 
 threading.Thread(target=run_schedule).start()
 
-# === SERVEUR FLASK POUR REPLIT ===
 app = Flask(__name__)
 
 @app.route('/')
@@ -114,7 +105,7 @@ def run_flask():
     app.run(host="0.0.0.0", port=8080)
 
 threading.Thread(target=run_flask).start()
-# === COMMANDE /pause ===
+
 @bot.message_handler(commands=['pause'])
 def pause(message):
     user_id = str(message.chat.id)
@@ -125,7 +116,6 @@ def pause(message):
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
-# === COMMANDE /resume ===
 @bot.message_handler(commands=['resume'])
 def resume(message):
     user_id = str(message.chat.id)
@@ -136,7 +126,6 @@ def resume(message):
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
-# === COMMANDE /reset ===
 @bot.message_handler(commands=['reset'])
 def reset(message):
     user_id = str(message.chat.id)
@@ -148,5 +137,4 @@ def reset(message):
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
-# === LANCEMENT DU BOT ===
 bot.polling()
