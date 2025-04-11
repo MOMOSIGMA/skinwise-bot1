@@ -4,7 +4,6 @@ import time
 import threading
 import json
 from datetime import datetime, date
-from flask import Flask
 import os
 
 # === CONFIGURATION ===
@@ -67,6 +66,7 @@ Tape simplement `/help`
 🕒 *Le Jour 1 commence dès aujourd’hui.*  
 Tu vas changer doucement, mais profondément.  
 *Félicitations. Tu fais partie de ceux qui OSENT.*"""
+
         bot.send_message(message.chat.id, message_bienvenue, parse_mode="Markdown")
     else:
         bot.send_message(message.chat.id, "Tu es déjà inscrit. Le programme continue.")
@@ -74,62 +74,18 @@ Tu vas changer doucement, mais profondément.
 # === COMMANDE /help ===
 @bot.message_handler(commands=['help'])
 def help_command(message):
-    texte = """💡 *Besoin d’un coup de main ?*
+    bot.send_message(message.chat.id, """🔹 *Quel gel nettoyant choisir ?*
+Utilise un savon doux ou un gel sans parfum ni alcool (sulfuré, neem ou charbon si possible).
 
-Voici quelques conseils utiles pour bien suivre le programme :
-
-🔹 *Quel gel nettoyant choisir ?*  
-Utilise un savon doux ou un gel sans parfum ni alcool. Si tu peux, essaie un savon au soufre, au neem ou au charbon végétal naturel.
-
-🔹 *Quelle huile naturelle utiliser ?*  
+🔹 *Quelle huile naturelle utiliser ?*
 • Peau grasse : jojoba ou nigelle  
 • Peau sèche : karité ou avocat  
 • Peau mixte : carotte ou noisette
 
-🔹 *Puis-je faire le programme sans produits ?*  
-Oui ! Bois de l’eau, fais les exercices mentaux et note tes progrès. Les produits ne sont qu’un plus.
+🔹 *Puis-je faire le programme sans produits ?*
+Oui. Bois de l’eau, note tes progrès, applique les routines. Les produits sont un plus.
 
-Tu peux taper `/reset` pour recommencer, ou `/pause` si tu veux stopper temporairement.
-
-On avance ensemble 🔥
-"""
-    bot.send_message(message.chat.id, texte, parse_mode="Markdown")
-
-# === ENVOI AUTOMATIQUE ===
-def envoyer_messages(moment):
-    today = date.today()
-    for user_id, data in users.items():
-        if data.get("paused"):
-            continue
-        start = datetime.strptime(data["start_date"], "%Y-%m-%d").date()
-        jour = (today - start).days + 1
-        if str(jour) in programme:
-            msg_data = programme[str(jour)].get(moment)
-            if msg_data:
-                texte = f"🌞 *{msg_data['titre']}*\n\n" + "\n".join([f"• {action}" for action in msg_data["actions"]])
-                bot.send_message(int(user_id), texte, parse_mode='Markdown')
-
-schedule.every().day.at("12:30").do(envoyer_messages, moment="midi")
-schedule.every().day.at("21:20").do(envoyer_messages, moment="soir")
-
-def run_schedule():
-    while True:
-        schedule.run_pending()
-        time.sleep(1)
-
-threading.Thread(target=run_schedule).start()
-
-# === SERVEUR FLASK POUR RENDER/REPLIT ===
-app = Flask(__name__)
-
-@app.route('/')
-def home():
-    return "SkinWise Bot actif."
-
-def run_flask():
-    app.run(host="0.0.0.0", port=8080)
-
-threading.Thread(target=run_flask).start()
+Tape `/reset` pour recommencer, ou `/pause` pour mettre en pause.""", parse_mode="Markdown")
 
 # === COMMANDE /pause ===
 @bot.message_handler(commands=['pause'])
@@ -164,6 +120,31 @@ def reset(message):
         bot.send_message(message.chat.id, "🔄 Programme redémarré. Aujourd’hui est le nouveau Jour 1.")
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
+
+# === ENVOI DES MESSAGES QUOTIDIENS ===
+def envoyer_messages(moment):
+    today = date.today()
+    for user_id, data in users.items():
+        if data.get("paused"):
+            continue
+        start = datetime.strptime(data["start_date"], "%Y-%m-%d").date()
+        jour = (today - start).days + 1
+        if str(jour) in programme:
+            msg_data = programme[str(jour)].get(moment)
+            if msg_data:
+                texte = f"🌞 *{msg_data['titre']}*\n\n" + "\n".join([f"• {action}" for action in msg_data["actions"]])
+                bot.send_message(int(user_id), texte, parse_mode='Markdown')
+
+# === PLANIFICATION ===
+schedule.every().day.at("12:30").do(envoyer_messages, moment="midi")
+schedule.every().day.at("21:20").do(envoyer_messages, moment="soir")
+
+def run_schedule():
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+
+threading.Thread(target=run_schedule).start()
 
 # === LANCEMENT DU BOT ===
 bot.polling()
