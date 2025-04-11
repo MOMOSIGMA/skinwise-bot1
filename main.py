@@ -7,8 +7,9 @@ from datetime import datetime, date
 from flask import Flask
 
 # === CONFIGURATION ===
-TOKEN = "7952444866:AAFw6-jYo1deEkLHJPYnoCM3j3kzh3p0Afo"
-bot = telebot.TeleBot(TOKEN)
+import os
+TOKEN = os.getenv("BOT_TOKEN")
+
 
 # === CHARGEMENT DU PROGRAMME ===
 with open("programme_skinwise.json", "r", encoding="utf-8") as f:
