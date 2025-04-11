@@ -1,0 +1,663 @@
+{
+  "1": {
+    "midi": {
+      "titre": "Jour 1 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Ne touche pas ton visage sans te laver les mains",
+        "Mange un fruit bon pour la peau (ex : papaye, avocat)",
+        "Respire profondément 3 fois",
+        "Affirmation : Ma peau devient plus saine chaque jour"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 1 – Soir",
+      "actions": [
+        "Nettoyage doux du visage",
+        "Applique une huile naturelle (jojoba, nigelle, carotte)",
+        "Pas d’écran 30 min avant le dodo",
+        "Bois un peu d’eau",
+        "Pense à un moment positif de ta journée"
+      ]
+    }
+  },
+  "2": {
+    "midi": {
+      "titre": "Jour 2 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Ne touche pas ton visage sans te laver les mains",
+        "Mange un avocat ou du concombre",
+        "Étire doucement ton cou et tes épaules",
+        "Affirmation : Je prends soin de moi avec amour"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 2 – Soir",
+      "actions": [
+        "Nettoyage doux du visage",
+        "Applique une huile légère",
+        "Pas de sucre ce soir",
+        "Hydrate-toi encore un peu",
+        "Note une chose dont tu es reconnaissant(e)"
+      ]
+    }
+  },
+  "3": {
+    "midi": {
+      "titre": "Jour 3 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Lave ton visage avec une eau infusée (camomille, thé vert)",
+        "Mange une mangue ou carotte",
+        "Fais 5 respirations conscientes",
+        "Affirmation : Je rayonne de l’intérieur"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 3 – Soir",
+      "actions": [
+        "Massage doux avec huile végétale",
+        "Pas d’écran 30 min avant de dormir",
+        "Bois de l’eau avec une rondelle de citron",
+        "Fais un sourire devant le miroir",
+        "Note 1 chose dont tu es fier aujourd’hui"
+      ]
+    }
+  },
+  "4": {
+    "midi": {
+      "titre": "Jour 4 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Lave tes mains avant chaque contact visage",
+        "Mange une goyave ou une banane",
+        "Fais 2 minutes d’étirement doux",
+        "Affirmation : Ma peau respire la santé"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 4 – Soir",
+      "actions": [
+        "Nettoyage visage eau tiède",
+        "Huile naturelle + massage circulaire",
+        "Pas de café/thé après 20h",
+        "Respire profondément 3 fois",
+        "Écris une phrase d’encouragement"
+      ]
+    }
+  },
+  "5": {
+    "midi": {
+      "titre": "Jour 5 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Ne te gratte pas le visage même en cas de démangeaison",
+        "Mange une salade de fruits frais",
+        "Fais une marche de 5 minutes",
+        "Affirmation : Mon corps mérite le meilleur"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 5 – Soir",
+      "actions": [
+        "Nettoyage doux visage",
+        "Masque naturel (miel + citron ou concombre)",
+        "Lis une page inspirante",
+        "Hydrate-toi encore",
+        "Gratitude du jour"
+      ]
+    }
+  },
+  "6": {
+    "midi": {
+      "titre": "Jour 6 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Mange un fruit orange (vitamine A)",
+        "Fais 3 minutes de silence total",
+        "Note ton niveau d’énergie",
+        "Affirmation : Je suis en pleine transformation"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 6 – Soir",
+      "actions": [
+        "Nettoyage visage sans frotter",
+        "Huile de nigelle ou coco",
+        "Pas de stress avant de dormir",
+        "Bois une tisane tiède",
+        "Écris une pensée apaisante"
+      ]
+    }
+  },
+  "7": {
+    "midi": {
+      "titre": "Jour 7 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Nettoyage rapide visage",
+        "Mange une pomme ou carotte",
+        "Bouge ton corps pendant 2 minutes",
+        "Affirmation : Ma peau s’illumine chaque jour"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 7 – Soir",
+      "actions": [
+        "Nettoyage doux",
+        "Application d’huile + 1 minute de respiration",
+        "Déconnexion des écrans",
+        "Bois une dernière gorgée d’eau",
+        "Pense à 1 victoire de la semaine"
+      ]
+    }
+  },
+  "8": {
+    "midi": {
+      "titre": "Jour 8 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Mange une portion de légumes verts",
+        "Fais un auto-massage du visage",
+        "Respire profondément 4 fois",
+        "Affirmation : Je me régénère"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 8 – Soir",
+      "actions": [
+        "Rinçage visage à l’eau froide",
+        "Applique huile légère",
+        "Évite tout stress inutile",
+        "Prépare-toi à bien dormir",
+        "Note une chose que tu as apprise aujourd’hui"
+      ]
+    }
+  },
+  "9": {
+    "midi": {
+      "titre": "Jour 9 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Ne touche pas ton visage",
+        "Mange un fruit frais (papaye, kiwi)",
+        "2 min d'étirements légers",
+        "Affirmation : Je mérite une belle peau"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 9 – Soir",
+      "actions": [
+        "Nettoyage visage",
+        "Masque hydratant naturel",
+        "Bois une eau infusée",
+        "Visualise ton futur glow ✨",
+        "Note un objectif pour demain"
+      ]
+    }
+  },
+  "10": {
+    "midi": {
+      "titre": "Jour 10 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Applique une brume rafraîchissante",
+        "Mange une salade de saison",
+        "Fais une pause loin du téléphone",
+        "Affirmation : Je suis belle/beau naturellement"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 10 – Soir",
+      "actions": [
+        "Nettoyage léger",
+        "Huile + massage zen",
+        "Musique calme ou silence",
+        "Hydrate-toi",
+        "Câline ton âme par une bonne pensée"
+      ]
+    }
+  },
+  "11": {
+          "midi": {
+            "titre": "Jour 11 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Mange des aliments riches en zinc (ex : noix, graines)",
+              "Fais un petit massage circulaire des tempes",
+              "Évite les pensées négatives",
+              "Affirmation : Je mérite le bien-être"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 11 – Soir",
+            "actions": [
+              "Nettoyage doux avec eau tiède",
+              "Huile végétale légère",
+              "Coupe les écrans 30 min avant dodo",
+              "Bois une tisane ou de l’eau",
+              "Note une victoire du jour"
+            ]
+          }
+        },
+        "12": {
+          "midi": {
+            "titre": "Jour 12 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Mange une orange ou papaye (vitamine C)",
+              "Fais un sourire à ton reflet",
+              "Respire profondément 4 fois",
+              "Affirmation : Ma lumière intérieure rayonne"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 12 – Soir",
+            "actions": [
+              "Nettoyage simple visage",
+              "Applique une huile adaptée",
+              "Silence intérieur 3 min",
+              "Hydrate-toi",
+              "Note un progrès sur ta peau"
+            ]
+          }
+        },
+        "13": {
+          "midi": {
+            "titre": "Jour 13 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Mange des légumes crus ou vapeur",
+              "Fais 5 respirations profondes",
+              "Évite les aliments transformés",
+              "Affirmation : Je prends soin de mon temple intérieur"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 13 – Soir",
+            "actions": [
+              "Nettoyage doux",
+              "Huile naturelle locale (karité, baobab)",
+              "Bois une infusion tiède",
+              "Pas de réseaux sociaux ce soir",
+              "Note une belle chose que tu ressens"
+            ]
+          }
+        },
+        "14": {
+          "midi": {
+            "titre": "Jour 14 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Rinçage à l’eau fraîche",
+              "Mange une salade légère",
+              "1 minute de gratitude",
+              "Affirmation : Mon corps me remercie"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 14 – Soir",
+            "actions": [
+              "Nettoyage visage",
+              "Applique ton huile + respiration lente",
+              "Fais une pause mentale",
+              "Hydrate-toi encore",
+              "Écris ton ressenti du moment"
+            ]
+          }
+        },
+        "15": {
+          "midi": {
+            "titre": "Jour 15 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Ajoute du citron dans ton eau",
+              "Mange une banane ou pomme",
+              "Fais une pause sans téléphone",
+              "Affirmation : Je mérite une peau saine"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 15 – Soir",
+            "actions": [
+              "Nettoyage doux",
+              "Masque naturel rapide",
+              "Lumière douce ou bougie",
+              "Hydrate-toi avant de dormir",
+              "Note une petite joie vécue"
+            ]
+          }
+        },
+        "16": {
+          "midi": {
+            "titre": "Jour 16 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Mange une papaye ou carotte râpée",
+              "Fais une courte marche",
+              "Respire et détends ton visage",
+              "Affirmation : Ma peau se régénère"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 16 – Soir",
+            "actions": [
+              "Nettoyage visage",
+              "Applique huile + message de paix intérieure",
+              "Coupe les bruits",
+              "Respire lentement 3 fois",
+              "Écris une chose belle que tu veux devenir"
+            ]
+          }
+        },
+        "17": {
+          "midi": {
+            "titre": "Jour 17 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Ne mange rien de gras",
+              "Rafraîchis ton visage avec eau froide",
+              "Bouge un peu (même 1 minute)",
+              "Affirmation : Je suis aligné avec la santé"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 17 – Soir",
+            "actions": [
+              "Nettoyage visage",
+              "Applique huile ou masque express",
+              "Évite les aliments lourds",
+              "Bois une eau tiède",
+              "Exprime une émotion librement"
+            ]
+          }
+        },
+        "18": {
+          "midi": {
+            "titre": "Jour 18 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Mange un fruit local",
+              "Respire 5 fois lentement",
+              "Étirement du haut du corps",
+              "Affirmation : Je guéris en douceur"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 18 – Soir",
+            "actions": [
+              "Nettoyage doux visage",
+              "Applique huile + gratitude",
+              "Musique calme ou silence",
+              "Hydrate-toi une dernière fois",
+              "Note un rêve que tu veux réaliser"
+            ]
+          }
+        },
+        "19": {
+          "midi": {
+            "titre": "Jour 19 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Évite tout sucre aujourd’hui",
+              "Mange un plat simple et naturel",
+              "Marche 5 minutes dehors",
+              "Affirmation : Je deviens lumineux(se)"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 19 – Soir",
+            "actions": [
+              "Nettoyage simple",
+              "Huile légère ou rien si ta peau le veut",
+              "Bois une tisane digestive",
+              "Éteins tout écran",
+              "Exprime-toi librement par écrit"
+            ]
+          }
+        },
+        "20": {
+          "midi": {
+            "titre": "Jour 20 – Midi",
+            "actions": [
+              "Bois un verre d’eau",
+              "Mange une orange ou fruit riche en eau",
+              "Fais 1 minute de silence mental",
+              "Relâche tes tensions",
+              "Affirmation : Mon énergie est douce et forte"
+            ]
+          },
+          "soir": {
+            "titre": "Jour 20 – Soir",
+            "actions": [
+              "Nettoyage léger",
+              "Applique huile + pensée de paix",
+              "Pas d’infos négatives ce soir",
+              "Respire comme si tu dormais déjà",
+              "Rêve grand"
+            ]
+          }
+        },
+  "21": {
+    "midi": {
+      "titre": "Jour 21 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Fais une pause mentale de 3 minutes",
+        "Mange un fruit frais (banane, papaye)",
+        "Respire profondément",
+        "Affirmation : Ma peau reflète ma paix intérieure"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 21 – Soir",
+      "actions": [
+        "Nettoyage du visage avec soin",
+        "Applique ton huile préférée",
+        "Évite tout stress émotionnel",
+        "Hydrate-toi calmement",
+        "Exprime une intention forte pour demain"
+      ]
+    }
+  },
+  "22": {
+    "midi": {
+      "titre": "Jour 22 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Mange une salade de fruits frais",
+        "Fais une pause sans téléphone",
+        "Marche 3 minutes",
+        "Affirmation : Mon énergie est pure et rayonnante"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 22 – Soir",
+      "actions": [
+        "Nettoyage doux",
+        "Masque express (miel ou huile + sucre)",
+        "Silence intérieur 1 minute",
+        "Bois une eau chaude",
+        "Écris une phrase qui t’élève"
+      ]
+    }
+  },
+  "23": {
+    "midi": {
+      "titre": "Jour 23 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Mange un légume cru (concombre, carotte)",
+        "Fais un petit massage du cou",
+        "Écoute ton souffle",
+        "Affirmation : Je suis connecté(e) à ma vitalité"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 23 – Soir",
+      "actions": [
+        "Nettoyage léger",
+        "Application d’huile au calme",
+        "Coupe les pensées inutiles",
+        "Hydrate ton corps",
+        "Exprime une émotion sans jugement"
+      ]
+    }
+  },
+  "24": {
+    "midi": {
+      "titre": "Jour 24 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Fais 2 minutes de silence",
+        "Mange une papaye ou orange",
+        "Étire ton dos",
+        "Affirmation : Je m’honore chaque jour"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 24 – Soir",
+      "actions": [
+        "Nettoyage du visage",
+        "Applique huile + silence mental",
+        "Pas de critiques internes",
+        "Bois une gorgée d’eau en pleine conscience",
+        "Écris une chose que tu aimes chez toi"
+      ]
+    }
+  },
+  "25": {
+    "midi": {
+      "titre": "Jour 25 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Rinçage visage à l’eau froide",
+        "Mange un fruit de ton choix",
+        "Respire comme un guerrier/guerrière calme",
+        "Affirmation : Je deviens une version plus forte de moi-même"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 25 – Soir",
+      "actions": [
+        "Nettoyage visage doux",
+        "Huile + mot d’amour à ton corps",
+        "Évite les pensées de comparaison",
+        "Hydrate-toi lentement",
+        "Note 1 chose à célébrer aujourd’hui"
+      ]
+    }
+  },
+  "26": {
+    "midi": {
+      "titre": "Jour 26 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Marche quelques pas au calme",
+        "Mange une salade simple",
+        "Ferme les yeux 1 minute",
+        "Affirmation : Je suis en paix avec ma peau"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 26 – Soir",
+      "actions": [
+        "Nettoyage sans frotter",
+        "Applique huile + pense à quelqu’un que tu aimes",
+        "Pas de grignotage",
+        "Hydrate-toi",
+        "Exprime un rêve fou que tu veux poursuivre"
+      ]
+    }
+  },
+  "27": {
+    "midi": {
+      "titre": "Jour 27 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Rince ton visage à l’eau fraîche",
+        "Mange une orange ou carotte",
+        "Évite toute tension",
+        "Affirmation : Mon corps guérit à son rythme"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 27 – Soir",
+      "actions": [
+        "Nettoyage + huile",
+        "Pas de lumière forte avant le lit",
+        "Écris une chose que tu as surmontée",
+        "Respire profondément 5 fois",
+        "Hydrate-toi"
+      ]
+    }
+  },
+  "28": {
+    "midi": {
+      "titre": "Jour 28 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Mange une banane ou fruit local",
+        "Fais 3 minutes de calme",
+        "Bouge un peu",
+        "Affirmation : Je suis à l’écoute de mon corps"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 28 – Soir",
+      "actions": [
+        "Nettoyage doux",
+        "Applique une huile naturelle",
+        "Pas de pensées négatives ce soir",
+        "Hydrate-toi paisiblement",
+        "Exprime ta fierté de tenir ce programme"
+      ]
+    }
+  },
+  "29": {
+    "midi": {
+      "titre": "Jour 29 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Rinçage visage",
+        "Mange un fruit frais",
+        "Fais un auto-massage",
+        "Affirmation : Je suis en transformation"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 29 – Soir",
+      "actions": [
+        "Nettoyage du visage",
+        "Huile + visualisation de ton futur",
+        "Coupe les écrans",
+        "Hydrate-toi doucement",
+        "Prépare-toi à célébrer demain"
+      ]
+    }
+  },
+  "30": {
+    "midi": {
+      "titre": "Jour 30 – Midi",
+      "actions": [
+        "Bois un verre d’eau",
+        "Souris à ton reflet dans le miroir",
+        "Mange ton fruit préféré",
+        "Respire avec fierté",
+        "Affirmation : J’ai accompli ma mission"
+      ]
+    },
+    "soir": {
+      "titre": "Jour 30 – Soir",
+      "actions": [
+        "Nettoyage final + soin",
+        "Applique ton huile préférée",
+        "Bois de l’eau pour clore le cycle",
+        "Célèbre ton évolution",
+        "Note ce que tu veux transmettre aux autres"
+      ]
+    }
+  }}
+
+
