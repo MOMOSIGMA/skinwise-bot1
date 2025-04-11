@@ -26,6 +26,7 @@ def save_users():
     with open("users.json", "w", encoding="utf-8") as f:
         json.dump(users, f, ensure_ascii=False, indent=2)
 
+# === COMMANDE /start ===
 @bot.message_handler(commands=['start'])
 def start(message):
     user_id = str(message.chat.id)
@@ -66,10 +67,33 @@ Tape simplement `/help`
 🕒 *Le Jour 1 commence dès aujourd’hui.*  
 Tu vas changer doucement, mais profondément.  
 *Félicitations. Tu fais partie de ceux qui OSENT.*"""
-
         bot.send_message(message.chat.id, message_bienvenue, parse_mode="Markdown")
     else:
         bot.send_message(message.chat.id, "Tu es déjà inscrit. Le programme continue.")
+
+# === COMMANDE /help ===
+@bot.message_handler(commands=['help'])
+def help_command(message):
+    texte = """💡 *Besoin d’un coup de main ?*
+
+Voici quelques conseils utiles pour bien suivre le programme :
+
+🔹 *Quel gel nettoyant choisir ?*  
+Utilise un savon doux ou un gel sans parfum ni alcool. Si tu peux, essaie un savon au soufre, au neem ou au charbon végétal naturel.
+
+🔹 *Quelle huile naturelle utiliser ?*  
+• Peau grasse : jojoba ou nigelle  
+• Peau sèche : karité ou avocat  
+• Peau mixte : carotte ou noisette
+
+🔹 *Puis-je faire le programme sans produits ?*  
+Oui ! Bois de l’eau, fais les exercices mentaux et note tes progrès. Les produits ne sont qu’un plus.
+
+Tu peux taper `/reset` pour recommencer, ou `/pause` si tu veux stopper temporairement.
+
+On avance ensemble 🔥
+"""
+    bot.send_message(message.chat.id, texte, parse_mode="Markdown")
 
 # === ENVOI AUTOMATIQUE ===
 def envoyer_messages(moment):
@@ -95,6 +119,7 @@ def run_schedule():
 
 threading.Thread(target=run_schedule).start()
 
+# === SERVEUR FLASK POUR RENDER/REPLIT ===
 app = Flask(__name__)
 
 @app.route('/')
@@ -106,6 +131,7 @@ def run_flask():
 
 threading.Thread(target=run_flask).start()
 
+# === COMMANDE /pause ===
 @bot.message_handler(commands=['pause'])
 def pause(message):
     user_id = str(message.chat.id)
@@ -116,6 +142,7 @@ def pause(message):
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
+# === COMMANDE /resume ===
 @bot.message_handler(commands=['resume'])
 def resume(message):
     user_id = str(message.chat.id)
@@ -126,6 +153,7 @@ def resume(message):
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
+# === COMMANDE /reset ===
 @bot.message_handler(commands=['reset'])
 def reset(message):
     user_id = str(message.chat.id)
@@ -137,4 +165,5 @@ def reset(message):
     else:
         bot.send_message(message.chat.id, "Tu n'es pas encore inscrit. Envoie /start pour commencer.")
 
+# === LANCEMENT DU BOT ===
 bot.polling()
